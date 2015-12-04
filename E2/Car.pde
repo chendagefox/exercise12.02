@@ -1,9 +1,34 @@
-/*
-Car
-======= 補充方法 ======
 
-建構式  (x , y , speed):
-  指定車子的 x , y , speed 值
-  初始化 im  g 屬性為車子圖片
+class Car{
+//======= 屬性 ======
+int x , y , speed;
+PImage carImage;
 
-*/
+//======= 方法 ======
+Car(int x,int y){
+  this.x= x;
+  this.y= y;
+  speed = 10;
+  carImage=loadImage("car.png");
+}
+Car(int x,int y,int speed){
+  this.x= x;
+  this.y= y;
+  this.speed = speed;
+  carImage=loadImage("car.png");
+}
+
+void reset(){
+  speed=int(random(3,6));//3,5
+  x=-50;
+}
+
+void display() {
+  image(carImage,x,y);
+}
+
+void moveForward(){
+  x+=speed;
+}
+
+}
