@@ -1,4 +1,20 @@
-/*
-  請把E1 的練習貼過來，並使用陣列裝 10 個 Car，
-  車子的 y 軸位置間隔為 50 ，速度為 3.0 ~ 5.0 的隨機數字
-*/
+Car []car ;
+
+void setup (){
+  size(500,500);
+  car = new Car [10];
+  for(int i=0;i<car.length;i++){
+  car[i]= new Car(100,i*50,int(random(3,6)));
+  }
+  
+}
+
+void draw () {
+  background(255);
+  
+  for(int i=0;i<car.length;i++){
+  car[i].display();
+  car[i].moveForward();
+  if (car[i].x > width ) car[i].reset(); 
+  }
+}
