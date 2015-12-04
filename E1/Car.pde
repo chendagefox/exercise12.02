@@ -1,25 +1,34 @@
-/*
-Car
-======= 屬性 ======
-的要有 x , y , speed , img 等屬性
 
-======= 方法 ======
-建構式  : 參數(x , y )
-  指定車子的 x , y 值
-  初始化 speed 速度為 10
-  初始化 im  g 屬性為車子圖片
+class Car{
+//======= 屬性 ======
+int x , y , speed;
+PImage carImage;
 
-建構式   : 參數(x , y , speed)
-  指定車子的 x , y , speed 值
-  初始化 im  g 屬性為車子圖片
+//======= 方法 ======
+Car(int x,int y){
+  this.x= x;
+  this.y= y;
+  speed = 10;
+  carImage=loadImage("car.png");
+}
+Car(int x,int y,int speed){
+  this.x= x;
+  this.y= y;
+  this.speed = speed;
+  carImage=loadImage("car.png");
+}
 
-reset   :
-  將車子的位置移到出發點 (隱藏於螢幕左側，y 軸位置隨機)
+void reset(){
+  y=int(random(0,500));
+  x=-450;
+}
 
-display :
-  顯示車子在畫布上
+void display() {
+  image(carImage,x,y);
+}
 
-moveForward :
-  車子的位置會往水平方向增加
+void moveForward(){
+  x+=3;
+}
 
-*/
+}
